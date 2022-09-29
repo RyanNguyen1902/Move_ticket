@@ -1,0 +1,233 @@
+@import "../../../template/main.scss";
+
+.card__title {
+  .nav-tabs {
+    border-bottom: none;
+    justify-content: center;
+    .nav-link {
+      border: none;
+      h1 {
+        font-size: 1rem;
+        color: #473c3a;
+        text-shadow: -8px -4px 6px lightgrey;
+        margin: 20px 0;
+      }
+    }
+    .show,
+    .active {
+      h1 {
+        font-size: 1rem;
+        color: #fa5238;
+        text-shadow: -8px -4px 6px lightgrey;
+        margin: 20px 0;
+      }
+    }
+  }
+}
+.card__movie {
+  .cardmovie__item {
+    position: relative;
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    display: block;
+    padding-top: 183%;
+    border-radius: 13px;
+    background-position: center;
+  }
+
+  .cardmovie__item::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 13px;
+    opacity: 0;
+    background: linear-gradient(0deg, #000, transparent);
+    transition: all 0.5s;
+  }
+
+  .card-body {
+    .card__age {
+      text-align: center;
+      border-radius: 4px;
+      background: $main-color;
+      color: #fff;
+      font-size: 14px;
+      padding: 2px 10px;
+      margin-right: 8px;
+      font-weight: 600;
+    }
+    .card-title {
+      color: black;
+      text-decoration: none;
+      font-weight: 700;
+    }
+  }
+}
+.card__item:hover .card__overlay,
+.card__item:hover .cardmovie__item::after {
+  opacity: 1;
+}
+.card__item {
+  width: 90% !important;
+  position: relative;
+  height: 540px;
+  margin: 10px 0;
+  .card__overlay {
+    opacity: 0;
+    transition: all 0.5s;
+    .playMovie {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: transparent;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+    .playMovie:hover {
+      opacity: 0.7;
+    }
+    .btn__buyTicket {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(270deg, $main-color, #ce3017);
+      color: white;
+      height: 50px;
+      position: absolute;
+      bottom: 0;
+    }
+    .btn__buyTicket:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.card__link:hover {
+  text-decoration: none !important;
+}
+.list__movie {
+  margin: 40px 0;
+}
+.list__content {
+  margin-bottom: 45px;
+  .slick-arrow::before {
+    color: black;
+    font-size: 33px;
+  }
+  .slick-prev {
+    left: -65px;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .list__movie {
+    .list__content {
+      margin: 0;
+      .slick-list {
+        height: 100%;
+        .card__item {
+          margin-bottom: 70px;
+          .card__overlay {
+            opacity: 1;
+            .btn__buyTicket {
+              bottom: -45px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .list__movie {
+    .container {
+      padding-right: 0;
+    }
+    .list__content {
+      margin-left: 0;
+      margin-right: 0;
+      height: unset;
+      .slick-prev {
+        left: 45%;
+        top: 100%;
+      }
+      .slick-next {
+        top: 100%;
+        right: 48%;
+      }
+    }
+    .card__item {
+      margin-bottom: 0 !important;
+      .card__overlay {
+        opacity: 1;
+        .playMovie {
+          top: 35%;
+          opacity: 0.8;
+        }
+        .btn__buyTicket {
+          height: 40px;
+          bottom: 40px !important;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 736px) {
+  .list__movie {
+    .list__content {
+      .slick-list {
+        padding: 0 8px;
+      }
+      .card__item {
+        height: 420px;
+        .playMovie {
+          img {
+            width: 50px;
+          }
+        }
+        .card-title {
+          font-size: 12px !important;
+          font-weight: 600 !important;
+        }
+        .card__overlay {
+          .btn__buyTicket {
+            bottom: 10px !important;
+          }
+        }
+      }
+      .slick-prev {
+        left: -40px;
+        top: 50%;
+      }
+      .slick-next {
+        right: -24px;
+        top: 50%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .list__movie {
+    .container {
+      padding-left: 0;
+      .card__item {
+        margin-bottom: 40px !important;
+        .card__overlay {
+          .btn__buyTicket {
+            bottom: -30px !important;
+          }
+        }
+      }
+    }
+  }
+}
